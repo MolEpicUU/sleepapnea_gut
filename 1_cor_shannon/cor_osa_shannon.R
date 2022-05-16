@@ -6,8 +6,8 @@
 library(data.table)
 
   # Folders 
-  results.folder <-  '/proj/nobackup/sens2019512/users/baldanzi/sleepapnea_gut/results/'
-  work <- '/proj/nobackup/sens2019512/users/baldanzi/sleepapnea_gut/work/'
+  results.folder <-  './results/'
+  work <- './work/'
   
   # Import data
   pheno <- readRDS(paste0(work,"pheno_sleep_mgs_shannon.rds"))
@@ -26,8 +26,6 @@ library(data.table)
   # Spearman correlation  
   
   exposures = c("ahi","t90","odi")
-  
-  res.alpha = vector(mode = "list")
   
   
     res.main.model <- lapply(exposures,spearman.function,

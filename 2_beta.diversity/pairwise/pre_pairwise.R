@@ -1,7 +1,4 @@
-# Script to run the pairwise PERMANOVA for groups of AHI/T90/ODI 
-
-# Every PERMANOVA analysis takes approx. 12h to run in 16 cores. 
-# Thus, this script takes about 4 x 3 x 12h = 144h to finish, if ran sequentially 
+# Script to prepare the data for the pairwise PERMANOVA for groups of AHI/T90/ODI 
 
   # Loading packages
   library(data.table)
@@ -9,9 +6,9 @@
   library(parallel)
 
   # Folders
-  results.folder = '/proj/nobackup/sens2019512/users/baldanzi/sleepapnea_gut/results/'
+  results.folder = './results/'
 
-  work <- '/proj/nobackup/sens2019512/users/baldanzi/sleepapnea_gut/work/'
+  work <- './work/'
   
   # Import data
   pheno <- readRDS(paste0(work,"pheno_sleep_mgs_shannon.rds"))

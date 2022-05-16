@@ -1,5 +1,7 @@
+# Project sleep apnea and gut microbiota 
+# Gabriel Baldanzi 
 
-# Script to run the permutation analysis between AHI/T90/ODI and BC
+# Script to run the permutation analysis between AHI/T90/ODI and beta-diversity (Bray-Curtis dissimilarity)
 
 # This script is meant to run PERMANOVA analysis in parallel in 16 cores
 
@@ -9,8 +11,8 @@
   library(parallel)
 
   # Folders
-  results.folder = '/proj/nobackup/sens2019512/users/baldanzi/sleepapnea_gut/results/'
-  work <- '/proj/nobackup/sens2019512/users/baldanzi/sleepapnea_gut/work/'
+  results.folder = './results/'
+  work <- './work/'
   
   # Import data
   pheno <- readRDS(paste0(work,"pheno_sleep_mgs_shannon.rds"))

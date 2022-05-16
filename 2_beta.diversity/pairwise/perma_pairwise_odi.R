@@ -1,12 +1,8 @@
 # Project: Sleep apnea and gut microbiota
 # Gabriel Baldanzi 
 
-
-# Version 1: 2022-01-19
-# Last Update: - 2022-02-02
-
-# This code will run pairwise comparisons between ODI severity group in 
-# relation to the beta-diversity (Bray Curtis Dissimilarity) 
+# This code will investigate pairwise comparison between groups 
+# of different ODI severity
 
 # Preparation 
 source('2_beta.diversity/pairwise/pre_pairwise.R')

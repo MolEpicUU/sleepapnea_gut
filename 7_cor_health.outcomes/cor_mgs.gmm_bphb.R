@@ -2,30 +2,34 @@
 # Gabriel Baldanzi 
 
 
-# This script will investigate the correlation between the species that were 
+# This script performs the Spearman's correlation between the species that were 
 # associated with T90/ODI and the health outcomes SBP/DPB/Hb1Ac in SCAPIS-Uppsala participants
 
 # It will also investigate the association between the GMM enriched in the T90-species 
 # associations and SBP/DPB/Hb1Ac in SCAPIS-Uppsala participants
 
+# SBP = systolic blood pressure 
+# DBD = diastolic blood pressure
+# Hb1Ac = glycated hemoglobin
+
   library(data.table)
 
   # Folders 
-  results.folder <-  '/proj/nobackup/sens2019512/users/baldanzi/sleepapnea_gut/results/'
-  work <- '/proj/nobackup/sens2019512/users/baldanzi/sleepapnea_gut/work/'
+  results.folder <-  './results/'
+  work <- './work/'
   
 
-  # load functions
-  source("0_functions/Spearman.correlation.function.R")
+  # Function
+  source("0_functions/Spearman.correlation.function.R") # partial Spearman's correlation function
 
   # Import data
   pheno <- readRDS(paste0(work,"pheno_sleep_mgs_shannon.rds"))
   
 
-  # Import the significant species 
+  # Import the T90/ODI-associated species 
   mgs.fdr <- readRDS(paste0(results.folder,'mgs.m1.rds'))
   
-  # Import pathway enrichment analysis results ####
+  # Import the pathway enrichment analysis results ####
   res.ea.gmm <- fread(paste0(results.folder,"ea_GMM.tsv"))
 
   osa.gmm <- unique(res.ea.gmm[q.value<.05,pathway])
@@ -34,7 +38,7 @@
   # Covariates 
   covariates <- c("age", "Sex", "Alkohol","smokestatus",
                   "Fibrer","Energi_kcal" ,"leisurePA", "placebirth",
-                  "plate","shannon","t90","ahi")
+                  "plate","t90","ahi","odi")
   
   # In the analysis with SBP and DBP, we excluded participants that self-reported
   # medication use for hypertension 
@@ -81,6 +85,8 @@
   
   
   # OSA+BMI adjusted ####
+  
+  # Model further adjusted for BMI 
   
   covariates.bmi = c(covariates, "BMI")
   

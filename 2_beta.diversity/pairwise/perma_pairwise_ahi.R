@@ -1,8 +1,6 @@
 # Project: Sleep apnea and gut microbiota
 # Gabriel Baldanzi 
 
-# Last Update: - 2022-02-02
-
 # This code will investigate pairwise comparison between groups 
 # of different AHI severity
 
@@ -11,7 +9,6 @@ source('2_beta.diversity/pairwise/pre_pairwise.R')
 
   # Importing data
   dades <- copy(pheno[valid.ahi=="yes",])
-
 
 # Making sure that BC and dataset have the same order of observations 
   BC <- BC[dades$SCAPISid,dades$SCAPISid]

@@ -9,8 +9,8 @@
 
     
   # # Defining folders
-  input <- "/home/baldanzi/Datasets/sleep_SCAPIS/"
-  work <- '/proj/nobackup/sens2019512/users/baldanzi/sleepapnea_gut/work/'
+  input <- './imput/'
+  work <- '/.work/'
   
   # Import data
   pheno <- readRDS(paste0(work,"pheno_sleep_mgs_shannon.rds"))

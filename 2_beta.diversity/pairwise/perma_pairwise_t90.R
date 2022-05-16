@@ -2,17 +2,14 @@
 # Gabriel Baldanzi 
 
 
-# Last Update: - 2022-02-02
-
-# This code will run pairwise comparisons between T90 severity group in 
-# relation to the beta-diversity (Bray Curtis Dissimilarity) 
+# This code will investigate pairwise comparison between groups 
+# of different T90 severity
 
 # Preparation 
 source('2_beta.diversity/pairwise/pre_pairwise.R')
 
   # Importing data
     dades <- copy(pheno[valid.t90=="yes",])
-
 
   # Making sure that BC and dataset have the same order of observations 
     BC <- BC[dades$SCAPISid,dades$SCAPISid]

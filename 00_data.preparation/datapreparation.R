@@ -20,15 +20,13 @@
   # input = folder containing the data 
   input <- "./input/"
   
-  
-  # Create folders to save working data and results 
   # work folder to save the final data
   if(!dir.exists("work")){dir.create("work")}
   work <- './work/'
 
   # results folder 
   if(!dir.exists("results")){dir.create("results")}
-   results <- './results/'
+  results <- './results/'
   
   # Import data 
   pheno <-readRDS(paste0(input,"pheno_sleep_mgs.rds"))

@@ -12,15 +12,15 @@
 
 The following R packages were used: 
 ape (version 5.5)
-data.table (version 1.14.2)
-fgsea (version 1.18.0)
-Hmisc (version 4.6-0)
-parallel (version 4.1.1)
-ppcor (version 1.1)
-sjmisc (version 2.8.7)
-stringr (version 1.4.0)
-tidyverse (version 1.3.1)
-vegan (version 2.5-7)
+data.table (version 1.14.2);
+fgsea (version 1.18.0); 
+Hmisc (version 4.6-0); 
+parallel (version 4.1.1); 
+ppcor (version 1.1); 
+sjmisc (version 2.8.7); 
+stringr (version 1.4.0); 
+tidyverse (version 1.3.1); 
+vegan (version 2.5-7); 
 
 ##### Scripts should be run in the order specific below. 
 

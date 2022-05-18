@@ -20,7 +20,7 @@ ppcor (version 1.1);
 sjmisc (version 2.8.7); 
 stringr (version 1.4.0); 
 tidyverse (version 1.3.1); 
-vegan (version 2.5-7); 
+vegan (version 2.5-7).
 
 ##### Scripts should be run in the order specific below. 
 

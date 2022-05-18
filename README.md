@@ -8,7 +8,7 @@
 
  
 
-#### In this study, we investigated the association between 3 OSA parameters and the gut microbiota composition in participants from SCPAPIS-Uppsala. Scripts to be run in R, except for the analysis with multiple imputation that should be run in STATA. 
+#### In this study, we investigated the association between 3 OSA parameters and the gut microbiota composition in participants from SCPAPIS-Uppsala. Scripts to be run in R (version 4.1.1), except for the analysis with multiple imputation that should be run in Stata (version 15.1). 
 
 ##### Scripts should be run in the order specific below. 
 

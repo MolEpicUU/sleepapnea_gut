@@ -17,6 +17,7 @@
   library(data.table) 
   library(vegan)
 
+  # Set working directory to the same folder contaning the folder 00_data.preparation
   # input = folder containing the data 
   input <- "./input/"
   
@@ -103,16 +104,17 @@
   pheno[t90==0, t90cat := 'T90 = 0' ]
   pheno[t90!=0, t90cat :=  cut(t90,breaks = quantile(t90,
                                                      probs = seq(0,1,by=1/3),
-                                                     na.rm=T), include.lowest = T)]
+                                                     na.rm=T), include.lowest = T,
+                               labels = c("t1","t2","t3"))]
  
-  pheno[,t90cat:=factor(t90cat, levels = c("T90 = 0", "[1,3]", "(3,14]","(14,100]" ),
+  pheno[,t90cat:=factor(t90cat, levels = c("T90 = 0", "t1", "t2","t3" ),
                         labels = c("T90 = 0","t1","t2","t3"))]
   
   
   # Create groups of OSA severity based on ODI
-  pheno[,odicat := as.factor( cut(pheno$odi,breaks = quantile(odi, probs = seq(0,1,by=.25), na.rm=T), 
-                                  include.lowest = T) )]
-  pheno[,odicat := factor(odicat, levels = levels(odicat), labels = c("q1", "q2", "q3", "q4"))]
+  pheno[,odicat := cut(pheno$odi,breaks = quantile(odi, probs = seq(0,1,by=.25), na.rm=T), 
+                                  include.lowest = T , labels = c("q1", "q2", "q3", "q4"))]
+  pheno[,odicat := factor(odicat, levels = c("q1", "q2", "q3", "q4"), labels = c("q1", "q2", "q3", "q4"))]
 
   
   

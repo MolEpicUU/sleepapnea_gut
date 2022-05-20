@@ -10,7 +10,6 @@ rm(list=ls())
   library(data.table)
   library(tidyr)
   library(fgsea)
-  library(stringr)
   
   
   # Functions 

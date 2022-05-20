@@ -49,7 +49,8 @@ Hmisc, parallel, ppcor, sjmisc (version 2.8.7), tidyverse, vegan. No add-ons to 
 
 * Download all folders into one master folder. This master folder should be set as the working directory for both R and Stata. 
 
-* In R: 
+* In R:     
+
 ** Run script 00_data.preparation/datapreparation.R.    
 output: 
 

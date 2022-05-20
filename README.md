@@ -51,5 +51,5 @@ Hmisc, parallel, ppcor, sjmisc (version 2.8.7), tidyverse, vegan. No add-ons to 
 
 * In R:
      *  Run script 00_data.preparation/datapreparation.R.    
-output: 
+     output: 
 

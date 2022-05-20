@@ -4,20 +4,13 @@
 # Multiple comparison adjustment after imputation of AHI and 
 # Spearman's correlation with gut species using STATA 
 
-# Since the gut microbiota species were analysed in 4 parallel scripts, here we merge 
-# the results and perform the multiple comparison adjustment using BH. 
 
 
   library(data.table)
 
   results.folder <- "./results/"
 
-  res_1 <- fread(paste0(results.folder,"cor_ahi_imput_mgs_1.tsv"))
-  res_2 <- fread(paste0(results.folder,"cor_ahi_imput_mgs_2.tsv"))
-  res_3 <- fread(paste0(results.folder,"cor_ahi_imput_mgs_3.tsv"))
-  res_4 <- fread(paste0(results.folder,"cor_ahi_imput_mgs_4.tsv"))
-  
-  res.impute <- rbind(res_1,res_2,res_3,res_4)
+  res.impute <- fread(paste0(results.folder,"cor_ahi_imput_mgs.tsv"))
 
   res.impute[,q_value := p.adjust(p_value, method="BH")]
 

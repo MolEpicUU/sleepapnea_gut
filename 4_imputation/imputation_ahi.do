@@ -10,7 +10,7 @@
 
 capture log close
 
-log using results/imputation_ahi_4.txt, replace
+log using results/imputation_ahi.txt, replace
 
 di c(current_date)
 di c(current_time)
@@ -20,12 +20,11 @@ set seed 7
 set more off
 clear 
 
-cap postclose myfile_4 
+cap postclose myfile_1
 
-postfile myfile_4 str20 MGS double rho p_value N using "results/cor_ahi_imput_mgs_4.dta", replace
+postfile myfile_1 str20 MGS double rho p_value N using "results/cor_ahi_imput_mgs.dta", replace
 
-
-use work/pheno_4.dta, clear
+use work/pheno.dta, clear
 
 // Imputation and analysis were peformed in a loop so that we did not have to include 
 // all species in the same imputation equatation. Therefore, for every species 
@@ -37,7 +36,7 @@ foreach mgs of varlist HG3A*{
 	
 	di "`mgs'"
 
-	use work/pheno_4.dta, clear 
+	use work/pheno.dta, clear 
 	
 	** Flag Miss ahi observations 
 	** gen Miss_ahi = 0 if ahi !=.
@@ -78,11 +77,11 @@ foreach mgs of varlist HG3A*{
 	// * is used to capture all dummy variables for that covariate
 	local ext_model Sex rank_* smokestatus* plate* educat* leisurePA* month* placebirth*
 
-	qui mi estimate,saving(model1_4,replace): regress X_rank_imp `ext_model'
-	mi predict Xxb_imp using model1_4
+	qui mi estimate,saving(model1_1,replace): regress X_rank_imp `ext_model'
+	mi predict Xxb_imp using model1_1
 	mi passive: gen Xres_imp=X_rank_imp-Xxb_imp
-	qui mi estimate,saving(model2_4,replace): regress Y_rank_imp `ext_model'
-	mi predict Yxb_imp using model2_4
+	qui mi estimate,saving(model2_1,replace): regress Y_rank_imp `ext_model'
+	mi predict Yxb_imp using model2_1
 	mi passive: gen Yres_imp=Y_rank_imp-Yxb_imp
 	
 	mi passive: egen Xres_imp_std=std(Xres_imp)
@@ -94,25 +93,24 @@ foreach mgs of varlist HG3A*{
 	matrix A = r(table)
 
 
-post myfile_4 ("`mgs'") (A[1,1]) (A[4,1]) (e(N)) 
+post myfile_1 ("`mgs'") (A[1,1]) (A[4,1]) (e(N)) 
 
 }
 
-postclose myfile_4
+postclose myfile_1
 
 di c(current_date)
 di c(current_time)
 
-
 cd "results"
 
-use cor_ahi_imput_mgs_4.dta, clear 
+use cor_ahi_imput_mgs.dta, clear 
 
 gen exposure = "ahi" 
 
 // Export results back to R
 
-export delimited using "cor_ahi_imput_mgs_4.tsv", delim(tab) replace datafmt
+export delimited using "cor_ahi_imput_mgs.tsv", delim(tab) replace datafmt
 
 di c(current_date)
 di c(current_time)

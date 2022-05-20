@@ -8,7 +8,7 @@
 
  
 
-#### In this study, we investigated the association between 3 OSA parameters and the gut microbiota composition in participants from SCPAPIS-Uppsala. Scripts to be run in R (version tested: 4.1.1), except for the analysis with multiple imputation that should be run in Stata (version tested: 15.1). 
+#### In this study, we investigated the association between 3 obstructive sleep apnea (OSA) parameters and the gut microbiota composition in participants from SCPAPIS-Uppsala. Scripts to be run in R (version tested: 4.1.1), except for the analysis with multiple imputation that should be run in Stata (version tested: 15.1). 
 
 The following R packages were used: 
 ape (version 5.5)

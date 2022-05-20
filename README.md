@@ -51,5 +51,43 @@ Hmisc, parallel, ppcor, sjmisc (version 2.8.7), tidyverse, vegan. No add-ons to 
 
 * In R:
      *  Run script 00_data.preparation/datapreparation.R.    
-     output: 
+     output: Creates two folders "work" and "results". A edited dataset named "pheno_sleep_mgs_shannon.rds" is produced and saved at "work"
+     
+     *  Run script 1_cor_shannon/cor_osa_shannon.R.      
+     output: "cor_all.var_alpha.tsv" saved in the folder "results"
+     
+     *  Run script 2_beta.diversity/calculate_braycurtis.R.     
+     output: 'BCmatrix.tsv' save in the folder "work" 
+     
+     *  Run script script 2_beta.diversity/permanova_main.R
+     output: files "permanova_main.model_ahi.tsv", "permanova_extended.model_ahi.tsv", "permanova_main.model_t90.tsv", "permanova_extended.model_t90.tsv", "permanova_main.model_odi.tsv", and "permanova_extended.model_odi.tsv" saved at "results" 
+     
+     *  Run the scripts 2_beta.diversity/pairwise/perma_pairwise_ahi.R, 2_beta.diversity/pairwise/perma_pairwise_t90.R, and 2_beta.diversity/pairwise/perma_pairwise_t90.R.  
+     output: "pairwise.perma.results_ahi.rds", "pairwise.perma.results_t90.rds", and "pairwise.perma.results_odi.rds" saved at "results"
+     
+     *  Run script 3_correlation/root_script.R  
+     output: "cor_all.var_mgs.tsv", "mgs.fdr.mainmodel.rds", "cor.bmi_all.var_mgs.tsv", "cor2_all.var_mgs.tsv", "mgs.m1.rds", "cor.med_all.var_mgs.tsv", "corsaatb_all.var_mgs.tsv", and "corsalung_all.var_mgs.tsv" saved at "results". 
+     
+     *  Run script 4_imputation/pre.imputation.R 
+     output: "pheno.dta" saved at "work"
+ 
+* In Stata: 
+     *  Run do.file imputation_ahi.do
+     output: "cor_ahi_imput_mgs.tsv"
+     
+* In R: 
+     *  Run script p.adjust.R
+     output: "cor_ahi_imput_mgs.tsv" saved at "results"
+     
+     * Run script 5_hb_stratified/cor_stratified_hb.R
+     output: "cor_hb_stratified.tsv" saved at "results"
+     
+     * Run script 6_enrichment_GMM/enrich_GMM.R
+     output: "ea_GMM.tsv" saved at "results"
+     
+     * Run script 7_cor_health.outcomes/cor_mgs.gmm_bphb.R
+     output: "cor_mgs.gmm_bphb.tsv" saved at "results"
+     
+     
+* Expected run time for demo: aprox. 2 hours 
 

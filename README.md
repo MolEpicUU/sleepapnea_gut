@@ -21,10 +21,10 @@ sjmisc (version 2.8.7);
 tidyverse (version 1.3.1); 
 vegan (version 2.5-7).
 
-##### Scripts should be run in the order specific below. 
+##### Scripts meant to be run in the order specified below. 
 
 * 00_data.preparation/datapreparation.R : creates folder for working files and results. It also criates new variables that are used in subsequent analyses, it excludes CPAP users, and calculates the Shannon diversity index
-* 0_functions: Folder that contains functions to be used in subsequent analyses.  
+* 0_functions: Folder that contains functions to be used in subsequent analyses. These scripts don't need to be run separately. They will be called from other scripts. 
 * 1_cor_shannon/cor_osa_shannon.R : Spearman's correlation between OSA parameters and Shannon index using two set of covariates (main model and extended model)
 * 2_beta.diversity/calculate_braycurtis.R : calculates the Bray-Curtis (BC) dissimilarity matrix and performs the principal coordinate analyses. 
 * 2_beta.diversity/permanova_main.R : PERMANOVA analysis between the OSA parameters and the BC matrix.

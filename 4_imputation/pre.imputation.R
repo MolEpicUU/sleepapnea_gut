@@ -53,7 +53,7 @@
 
   
   # Rename levels for better handling at STATA
-  pheno[,leisurePA := factor(leisurePA, levels(leisurePA), labels =c("PA1","PA2","PA3","PA4"))]
+  pheno[,leisurePA := factor(leisurePA, levels(leisurePA), labels = paste0("PA", 1:length(levels(leisurePA))))]
   pheno[,educat := factor(educat, levels(educat), labels = c("edu1","edu2","edu3", "edu4"))]
   pheno[month == "June.July", month := "Jun_Jul"]
   

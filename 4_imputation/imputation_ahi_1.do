@@ -7,11 +7,10 @@
 
 // The data was initially prepared and exported from R 
 
-cd "./results/"
 
 capture log close
 
-log using imputation_ahi_1.txt, replace
+log using results/imputation_ahi_1.txt, replace
 
 di c(current_date)
 di c(current_time)
@@ -23,9 +22,9 @@ clear
 
 cap postclose myfile_1
 
-postfile myfile_1 str20 MGS double rho p_value N using "cor_ahi_imput_mgs_1.dta", replace
+postfile myfile_1 str20 MGS double rho p_value N using "results/cor_ahi_imput_mgs_1.dta", replace
 
-use "./work/pheno_1.dta", clear
+use work/pheno_1.dta, clear
 
 // Imputation and analysis were peformed in a loop so that we did not have to include 
 // all species in the same imputation equatation. Therefore, for every species 
@@ -37,7 +36,7 @@ foreach mgs of varlist HG3A*{
 	
 	di "`mgs'"
 
-	use "./work/pheno_1.dta", clear 
+	use work/pheno_1.dta, clear 
 	
 	** Flag Miss ahi observations 
 	** gen Miss_ahi = 0 if ahi !=.
@@ -103,6 +102,7 @@ postclose myfile_1
 di c(current_date)
 di c(current_time)
 
+cd "results"
 
 use cor_ahi_imput_mgs_1.dta, clear 
 

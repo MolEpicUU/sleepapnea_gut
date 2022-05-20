@@ -19,6 +19,7 @@ PermanovaFunction = function(y, exposure, covari, data, nodes = 1){
   covariates = paste(covari,collapse = "+")
   formula = as.formula(paste0('outcome.matrix ~',exposure,'+',covariates))
   
+  set.seed(123)
   result <- adonis2(formula,dades, by="margin", method = "bray" ,permutations = 9999, parallel = nodes)
   variables = rownames(result)
   result=as.data.frame(result)
@@ -39,7 +40,6 @@ Permanova.parallel.FUN <- function(y,exposure,model,data,nod=16){
   
   stopifnot(any(class(y) %in%  "matrix"))
 
-  set.seed(123)
   nod=nod   # Number of workers to be used 
   cl = makeCluster(nod)
   clusterExport(cl, varlist = c(deparse(substitute(y)),

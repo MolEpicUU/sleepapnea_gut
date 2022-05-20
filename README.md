@@ -18,7 +18,6 @@ Hmisc (version 4.6-0);
 parallel (version 4.1.1); 
 ppcor (version 1.1); 
 sjmisc (version 2.8.7); 
-stringr (version 1.4.0); 
 tidyverse (version 1.3.1); 
 vegan (version 2.5-7).
 
@@ -35,3 +34,10 @@ vegan (version 2.5-7).
 * 5_hb_stratified/cor_stratified_hb.R : Spearman's correlations of T90 and ODI with specific species stratified by two groups of hemoglobin level (low and high). 
 * 6_enrichment_GMM/enrich_GMM.R : Enrichment for gut metabolic modules in the associations between the OSA parameters and the species relative abundance. Analysis stratified by the direction of the associations (positive or negative) 
 * 7_cor_health.outcomes/cor_mgs.gmm_bphb.R : Spearman's correlations of specific species and gut metabolic modules with systolic blood presssure, diastolic blood pressure, and glycated hemoglobin. Two models were investigated: OSA adjusted and OSA+BMI adjusted. 
+
+
+##### Test datasets 
+    
+* input/pheno_sleep_mgs.rds : test data set containing 600 observations and 50 metagenomics species 
+* input/MGS_HG3A.GMMs2MGS.R : test list of pathways/modules for the pathway enrichment analysis (6_enrichment_GMM/enrich_GMM.R)
+

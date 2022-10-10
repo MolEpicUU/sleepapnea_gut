@@ -5,8 +5,6 @@
 # This script performs the Spearman's correlation between the species that were 
 # associated with T90/ODI and the health outcomes SBP/DPB/Hb1Ac in SCAPIS-Uppsala participants
 
-# It will also investigate the association between the GMM enriched in the T90-species 
-# associations and SBP/DPB/Hb1Ac in SCAPIS-Uppsala participants
 
 # SBP = systolic blood pressure 
 # DBD = diastolic blood pressure
@@ -27,12 +25,22 @@
   
 
   # Import the T90/ODI-associated species 
-  mgs.fdr <- readRDS(paste0(results.folder,'mgs.m1.rds'))
+  ext.res <- fread(paste0(results.folder,"cor2_all.var_mgs.tsv"))
+  mgs.neg = unique(ext.res[rho<0 & q.value<0.05, MGS])
+  mgs.pos = unique(ext.res[rho>0 & q.value<0.05, MGS])
+  t90.neg = unique(ext.res[exposure =="t90" & rho<0 & q.value<0.05, MGS])
+  t90.pos = unique(ext.res[exposure =="t90" & rho>0 & q.value<0.05, MGS])
+  odi.neg = unique(ext.res[exposure =="odi" & rho<0 & q.value<0.05, MGS])
+  odi.pos = unique(ext.res[exposure =="odi" & rho>0 & q.value<0.05, MGS])
   
-  # Import the pathway enrichment analysis results ####
-  res.ea.gmm <- fread(paste0(results.folder,"ea_GMM.tsv"))
-
-  osa.gmm <- unique(res.ea.gmm[q.value<.05,pathway])
+  pheno[,mgs.pos:=sum(.SD), .SDcols = mgs.pos, by = SCAPISid]
+  pheno[,mgs.neg:=sum(.SD), .SDcols = mgs.neg, by = SCAPISid]
+  pheno[,t90.pos:=sum(.SD), .SDcols = t90.pos, by = SCAPISid]
+  pheno[,t90.neg:=sum(.SD), .SDcols = t90.neg, by = SCAPISid]
+  pheno[,odi.pos:=sum(.SD), .SDcols = odi.pos, by = SCAPISid]
+  pheno[,odi.neg:=sum(.SD), .SDcols = odi.neg, by = SCAPISid]
+  
+  mgs.fdr <- c(mgs.pos,mgs.neg)
   
   
   # Covariates 
@@ -52,7 +60,7 @@
   temp.data = pheno[!is.na(SBP_Mean) & !is.na(DBP_Mean),]
   
   res.bp <- lapply(outcomes,spearman.function, 
-                   x1=c(mgs.fdr,osa.gmm),
+                   x1=c(mgs.fdr,"mgs.neg","mgs.pos","t90.pos","t90.neg","odi.pos","odi.neg"),
                    covari = covariates,
                    data = temp.data[hypermed=="no",])
   
@@ -65,7 +73,7 @@
   temp.data = pheno[!is.na(Hba1cFormattedResult),]
   
   res.hb <- lapply(outcomes,spearman.function, 
-                   x1=c(mgs.fdr,osa.gmm),
+                   x1=c(mgs.fdr,"mgs.neg","mgs.pos","t90.pos","t90.neg","odi.pos","odi.neg"),
                    covari = covariates,
                    data = temp.data[diabmed=="no",])
   
@@ -97,7 +105,7 @@
   temp.data = pheno[!is.na(SBP_Mean) & !is.na(DBP_Mean),]
   
   res.bp <- lapply(outcomes,spearman.function, 
-                   x1=c(mgs.fdr,osa.gmm),
+                   x1=c(mgs.fdr,"mgs.neg","mgs.pos","t90.pos","t90.neg","odi.pos","odi.neg"),
                    covari = covariates.bmi,
                    data = temp.data[hypermed=="no",])
   
@@ -110,7 +118,7 @@
   temp.data = pheno[!is.na(Hba1cFormattedResult),]
   
   res.hb <- lapply(outcomes,spearman.function, 
-                   x1=c(mgs.fdr,osa.gmm),
+                   x1=c(mgs.fdr,"mgs.neg","mgs.pos","t90.pos","t90.neg","odi.pos","odi.neg"),
                    covari = covariates.bmi,
                    data = temp.data[diabmed=="no",])
   

@@ -42,13 +42,16 @@
   source("3_correlation/cor_extended.model.R")
   
   # Species associated with AHI, T90, or ODI in the extended model are investigated 
-  # in three sensitivity analyses
+  # in four sensitivity analyses
   
   ## Sensitiviy analysis 1 - medication model 
   source("3_correlation/cor_medication.model.R")
   
-  ## Sensitivity analysis 2 - removed antibiotic users 
+  ## Sensitivity analysis 2 - added WHR to the extended model 
+  source("3_correlation/cor_sa_whr.R")
+  
+  ## Sensitivity analysis 3 - removed antibiotic users 
   source("3_correlation/cor_sa_atb.R")
   
-  ## Sensitivity analysis 3 - removed participants with self-reported lung disease
+  ## Sensitivity analysis 4 - removed participants with self-reported lung disease
   source("3_correlation/cor_sa_lungdisease.R")

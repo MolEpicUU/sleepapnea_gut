@@ -1,10 +1,10 @@
 # sleepapnea_gut
 
-### "Obstructive sleep apnea is associated with specific gut microbiota species and functions in the population-based Swedish CardioPulmonary bioImage Study".
+### "Obstructive sleep apnea was associated with the human gut microbiota composition and functional potential in the population-based Swedish CardioPulmonary bioImage Study (SCAPIS)".
 
 ***
 
-#### Last update: 2022-May-20
+#### Last update: 2023-Feb-16
 
  
 
@@ -66,7 +66,7 @@ Hmisc, parallel, ppcor, sjmisc (version 2.8.7), tidyverse, vegan. No add-ons to 
      output: "pairwise.perma.results_ahi.rds", "pairwise.perma.results_t90.rds", and "pairwise.perma.results_odi.rds" saved at "results"
      
      *  Run script 3_correlation/root_script.R  
-     output: "cor_all.var_mgs.tsv", "mgs.fdr.mainmodel.rds", "cor.bmi_all.var_mgs.tsv", "cor2_all.var_mgs.tsv", "mgs.m1.rds", "cor.med_all.var_mgs.tsv", "corsaatb_all.var_mgs.tsv", and "corsalung_all.var_mgs.tsv" saved at "results". 
+     output: "cor_all.var_mgs.tsv", "mgs.fdr.mainmodel.rds", "cor.bmi_all.var_mgs.tsv", "cor2_all.var_mgs.tsv", "mgs.m1.rds", "cor.med_all.var_mgs.tsv","cor.whr_all.var_mgs.tsv", "corsaatb_all.var_mgs.tsv", and "corsalung_all.var_mgs.tsv" saved at "results". 
      
      *  Run script 4_imputation/pre.imputation.R 
      output: "pheno.dta" saved at "work"
@@ -89,5 +89,5 @@ Hmisc, parallel, ppcor, sjmisc (version 2.8.7), tidyverse, vegan. No add-ons to 
      output: "cor_mgs.gmm_bphb.tsv" saved at "results"
      
      
-* Expected run time for demo: aprox. 2 hours 
+* Expected run time for demo: approx. 2 hours 
 

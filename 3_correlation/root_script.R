@@ -23,6 +23,7 @@
   main.model.BMI <- c(main.model, "BMI")
   extended.model <- c(main.model.BMI,"Fibrer","Energi_kcal" ,"leisurePA", 
                   "educat","placebirth","visit.month")
+  exntended.model.whr <- c(extended.model,"WaistHip")
   medication.model <- c(extended.model, "metformin","hypermed", "dyslipmed", "ppi")
   
   # Outcomes and exposures

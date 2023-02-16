@@ -27,7 +27,7 @@
   setnames(res.whr,"x","MGS")
   
   
-  # Save results for the extended model
+  # Save results for the sensitivity analysis with further adjustment for WHR
   fwrite(res.whr, file = paste0(results.folder,"cor.whr_all.var_mgs.tsv"))
   
   

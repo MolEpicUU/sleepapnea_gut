@@ -4,8 +4,9 @@
 
 ***
 
-#### Last update: 2023-Feb-16
+Baldanzi G, Sayols-Baixeras S, Theorell-Haglöw J, Dekkers KF, Hammar U, Nguyen D, Lin YT, Ahmad S, Holm JB, Nielsen HB, Brunkwall L, Benedict C, Cedernaes J, Koskiniemi S, Phillipson M, Lind L, Sundström J, Bergström G, Engström G, Smith JG, Orho-Melander M, Ärnlöv J, Kennedy B, Lindberg E, Fall T. Obstructive sleep apnea was associated with the human gut microbiota composition and functional potential in the population-based Swedish CardioPulmonary bioImage Study (SCAPIS). Chest. 2023 Mar 14:S0012-3692(23)00352-5. doi: 10.1016/j.chest.2023.03.010. Epub ahead of print. PMID: 36925044.
 
+Study available open-access at: https://journal.chestnet.org/article/S0012-3692(23)00352-5/fulltext 
  
 
 #### In this study, we investigated the association between 3 obstructive sleep apnea (OSA) parameters and the gut microbiota composition in participants from SCPAPIS-Uppsala. Scripts to be run in R (version tested: 4.1.1), except for the multiple imputation that should be run in Stata (version tested: 15.1). 
